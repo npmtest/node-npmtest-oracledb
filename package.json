@@ -1,1 +1,39 @@
-{     "devDependencies": {         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-oracledb",     "homepage": "https://github.com/npmtest/node-npmtest-oracledb",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-oracledb.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### basic test coverage for  [oracledb (v1.13.1)](http://www.oracle.com/technetwork/database/database-technologies/scripting-languages/node_js/)  [![npm package](https://img.shields.io/npm/v/npmtest-oracledb.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-oracledb) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-oracledb.svg)](https://travis-ci.org/npmtest/node-npmtest-oracledb)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-oracledb",
+    "keywords": [
+        "coverage",
+        "test",
+        "oracledb"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_oracledb.js",
+    "name": "npmtest-oracledb",
+    "nameAlias": "npmtest_oracledb",
+    "nameOriginal": "npmtest-oracledb",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-oracledb.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
